@@ -143,72 +143,59 @@ public class FORM extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btncongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncongActionPerformed
+    if (isInputValid()) {
         try {
-            // Lấy giá trị từ các trường văn bản
             int num1 = Integer.parseInt(txt1.getText());
             int num2 = Integer.parseInt(txt2.getText());
-
-            // Tính tổng
             int sum = num1 + num2;
-
-            // Cập nhật kết quả
             txtketqua.setText("Kết quả: " + sum);
         } catch (NumberFormatException e) {
             txtketqua.setText("Vui lòng nhập số nguyên hợp lệ.");
         }
+    }
     }//GEN-LAST:event_btncongActionPerformed
 
     private void btntruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntruActionPerformed
+    if (isInputValid()){
         try {
-            // Lấy giá trị từ các trường văn bản
             int num1 = Integer.parseInt(txt1.getText());
             int num2 = Integer.parseInt(txt2.getText());
-
-            // Tính hiệu
-            int sum = num1 - num2;
-
-            // Cập nhật kết quả
-            txtketqua.setText("Kết quả: " + sum);
+            int difference = num1 - num2;
+            txtketqua.setText("Kết quả: " + difference);
         } catch (NumberFormatException e) {
             txtketqua.setText("Vui lòng nhập số nguyên hợp lệ.");
         }
+    }
     }//GEN-LAST:event_btntruActionPerformed
 
     private void btnnhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnhanActionPerformed
+    if (isInputValid()) {
         try {
-            // Lấy giá trị từ các trường văn bản
             int num1 = Integer.parseInt(txt1.getText());
             int num2 = Integer.parseInt(txt2.getText());
-
-            // Tính hiệu
-            int sum = num1 * num2;
-
-            // Cập nhật kết quả
-            txtketqua.setText("Kết quả: " + sum);
+            int product = num1 * num2;
+            txtketqua.setText("Kết quả: " + product);
         } catch (NumberFormatException e) {
             txtketqua.setText("Vui lòng nhập số nguyên hợp lệ.");
         }
+    }
     }//GEN-LAST:event_btnnhanActionPerformed
 
     private void btnchiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnchiaActionPerformed
-    try {
-        // Lấy giá trị từ các trường văn bản
-        int num1 = Integer.parseInt(txt1.getText());
-        int num2 = Integer.parseInt(txt2.getText());
-
-        // Kiểm tra nếu số chia là 0
-        if (num2 == 0) {
-            txtketqua.setText("Không thể chia cho 0!");
-        } else {
-            // Tính thương
-            double quotient = (double) num1 / num2;
-
-            // Cập nhật kết quả
-            txtketqua.setText("Kết quả: " + quotient);
+    if (isInputValid()) {
+        try {
+            int num1 = Integer.parseInt(txt1.getText());
+            int num2 = Integer.parseInt(txt2.getText());
+            if (num2 == 0) {
+                txtketqua.setText("Không thể chia cho 0!");
+            } else {
+                double quotient = (double) num1 / num2;
+                txtketqua.setText("Kết quả: " + quotient);
+            }
+        } catch (NumberFormatException e) {
+            txtketqua.setText("Vui lòng nhập số nguyên hợp lệ.");
         }
-    } catch (NumberFormatException e) {
-        txtketqua.setText("Vui lòng nhập số nguyên hợp lệ.");
-        }
+    }
     }//GEN-LAST:event_btnchiaActionPerformed
 
     /**
@@ -261,4 +248,19 @@ public class FORM extends javax.swing.JFrame {
     private javax.swing.JTextPane txt2;
     private javax.swing.JTextPane txtketqua;
     // End of variables declaration//GEN-END:variables
-}
+
+    private boolean isInputValid() {
+    if (txt1.getText().isEmpty() || txt2.getText().isEmpty()) {
+        txtketqua.setText("Vui lòng nhập số vào cả hai trường.");
+        return false;
+    }
+    try {
+        Integer.parseInt(txt1.getText());
+        Integer.parseInt(txt2.getText());
+    } catch (NumberFormatException e) {
+        txtketqua.setText("Vui lòng nhập số nguyên hợp lệ.");
+        return false;
+    }
+    return true;
+    }
+    }
