@@ -134,9 +134,9 @@ public class FORM extends javax.swing.JFrame {
                     .addComponent(btntru)
                     .addComponent(btnnhan)
                     .addComponent(btnchia))
-                .addGap(43, 43, 43)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         pack();
@@ -147,6 +147,11 @@ public class FORM extends javax.swing.JFrame {
         try {
             int num1 = Integer.parseInt(txt1.getText());
             int num2 = Integer.parseInt(txt2.getText());
+<<<<<<< HEAD
+=======
+            
+            // Tính tổng
+>>>>>>> 5572d90 (thay doi nho giao dien)
             int sum = num1 + num2;
             txtketqua.setText("Kết quả: " + sum);
         } catch (NumberFormatException e) {
